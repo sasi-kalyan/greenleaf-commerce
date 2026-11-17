@@ -1,3 +1,5 @@
 spring:
   application:
     name: greenleaf-commerce
+  profiles:
+    active: dev
