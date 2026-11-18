@@ -36,7 +36,8 @@ public class AdminServiceImpl implements AdminService {
         }
 
         Admin admin = adminRepository.save(adminMapper.modelToEntity(createAdminRequest));
-        log.info("Saved new admin into DB");
+
+        log.info("Saved admin into DB");
         return adminMapper.entityToModel(admin);
     }
 }

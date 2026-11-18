@@ -25,6 +25,8 @@ public class AdminController {
     public ResponseEntity<CreateAdminResponse> create(@RequestBody CreateAdminRequest createAdminRequest){
 
         CreateAdminResponse createAdminResponse = adminService.create(createAdminRequest);
-        return new ResponseEntity<>(createAdminResponse, HttpStatus.CREATED);
+        ResponseEntity<CreateAdminResponse> response = new ResponseEntity<>(createAdminResponse, HttpStatus.CREATED);
+
+        return response;
     }
 }

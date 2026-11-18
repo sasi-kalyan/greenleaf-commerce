@@ -24,5 +24,5 @@ public class Admin {
     private String username;
     private String password;
     private boolean active;
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
 }
