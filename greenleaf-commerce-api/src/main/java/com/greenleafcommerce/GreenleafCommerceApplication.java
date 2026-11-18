@@ -44,7 +44,7 @@ public class GreenleafCommerceApplication implements CommandLineRunner {
 			Admin admin = Admin.builder()
 					.username(props.username())
 					.password(passwordEncoder.encode(props.password()))
-					.role(String.valueOf(Role.ADMIN))
+					.role("ADMIN")
 					.active(true)
 					.createdAt(LocalDateTime.now())
 					.build();

@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme{
+  --font-sans: "DM Sans", sans-serif;
+  --color-gl-nav: #000000;
+}
