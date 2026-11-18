@@ -47,16 +47,28 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        log.info("inside loadUserByUsername invoked by --SpringSecurity");
+        log.info("username received --" + username);
+
         Optional<Admin> optAdmin = adminRepository.findByUsername(username);
+        log.info("username found -- " + optAdmin.isPresent());
 
         if(optAdmin.isPresent()){
             Admin admin = optAdmin.get();
-            return User.builder()
+            String role = admin.getRole();
+            log.info("role saved in db -- " + role);
+            String normalizedRole = role != null && role.startsWith("ROLE_") ? role.substring(5) : role;
+            log.info("normalizedRole -- " + normalizedRole);
+            UserDetails userDetails =  User.builder()
                     .username(admin.getUsername())
                     .password(admin.getPassword())
-                    .roles(String.valueOf(admin.getRole()))
+                    .roles(normalizedRole)
                     .build();
+
+            log.info("built object -- " + userDetails.toString());
+            return userDetails;
         }
-        return null;
+
+        throw new UsernameNotFoundException("USER NOT FOUND IN DB");
     }
 }
