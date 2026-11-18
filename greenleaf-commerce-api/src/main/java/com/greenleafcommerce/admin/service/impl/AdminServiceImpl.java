@@ -8,6 +8,9 @@ import com.greenleafcommerce.admin.repository.AdminRepository;
 import com.greenleafcommerce.admin.service.AdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -39,5 +42,21 @@ public class AdminServiceImpl implements AdminService {
 
         log.info("Saved admin into DB");
         return adminMapper.entityToModel(admin);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        Optional<Admin> optAdmin = adminRepository.findByUsername(username);
+
+        if(optAdmin.isPresent()){
+            Admin admin = optAdmin.get();
+            return User.builder()
+                    .username(admin.getUsername())
+                    .password(admin.getPassword())
+                    .roles(String.valueOf(admin.getRole()))
+                    .build();
+        }
+        return null;
     }
 }

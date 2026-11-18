@@ -21,3 +21,8 @@ spring:
   sql:
     init:
       mode: always
+
+greenleaf:
+  commerce:
+    username: "green_leaf_admin"
+    password: "green_leaf_admin@123"

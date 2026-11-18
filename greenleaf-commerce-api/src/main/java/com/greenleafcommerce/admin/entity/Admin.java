@@ -1,5 +1,6 @@
 package com.greenleafcommerce.admin.entity;
 
+import com.greenleafcommerce.common.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Admin {
     private Long id;
     private String username;
     private String password;
+    private Role role;
     private boolean active;
     private LocalDateTime createdAt;
 }
