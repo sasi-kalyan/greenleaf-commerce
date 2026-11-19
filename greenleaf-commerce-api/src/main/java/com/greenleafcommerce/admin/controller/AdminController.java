@@ -19,8 +19,8 @@ public class AdminController {
     }
 
     @GetMapping("/")
-    public String health(){
-        return "ADMIN MODULE IS RUNNING";
+    public String login(){
+        return "Admin module is running";
     }
 
     @PostMapping("/create")

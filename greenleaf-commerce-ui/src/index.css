@@ -2,5 +2,8 @@
 
 @theme{
   --font-sans: "DM Sans", sans-serif;
-  --color-gl-nav: #000000;
+  /* --color-gl-nav: #609F60; */
+  /* --font-sans: "Nunito", sans-serif; */
+  --color-gl-nav: #87A96B;
+  --color-gl-nav-text: #000000;
 }

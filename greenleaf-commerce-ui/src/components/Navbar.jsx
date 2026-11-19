@@ -1,11 +1,13 @@
 
+import { Link } from "react-router-dom";
+
 function Navbar() {
 
     return (
-        <nav className = "m-5 p-5 flex justify-center items-center content-center border-1 border-black text-lg rounded-4xl">
+        <nav className = "fixed bg-gl-nav self-center w-full flex p-6 justify-center text-md font-semibold">
             <ul className="flex gap-5">
                 <li>
-                    <a href="#">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
                     <a href="#">Products</a>
@@ -14,7 +16,7 @@ function Navbar() {
                     <a href="#">Contact</a>
                 </li>
                 <li>
-                    <a href="#">Login</a>
+                    <Link to="/login">Login</Link>
                 </li>
                 <li>
                     <a href="#">Signup</a>
